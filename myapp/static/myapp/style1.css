@@ -1,0 +1,17 @@
+h1{
+    font-size:14pt;
+    font-family:"Times New Roman";
+    text-align:center;
+    color: firebrick;
+}
+
+body{
+    background-color: ghostwhite;
+}
+
+.hbar1 {
+    display: inline;
+    margin: 15px;
+}
+
+

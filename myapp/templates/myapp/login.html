@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="login_form" action="{% url 'myapp:login' %}" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <p>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+            </p>
+            <p>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+            </p>
+            <P>
+                <button type="submit">Login</button>
+            </P>
+        </div>
+    </form>
+</body>
+</html>
+
+
+

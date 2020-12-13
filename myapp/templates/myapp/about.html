@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'myapp/base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning App - {% block title %}About Page{% endblock %}</title>
+</head>
+<body>
+    <div align="center">
+        {% block myhdg %}About Us{% endblock %}
+        {% block body_block %}
+            <h2 align="center">University of Windsor E-Learning</h2>
+            <p align="center">
+                We provide wide range of courses on different topics
+                choose the course of your choice and we make sure you
+                enjoy experience of learning and get benefited.
+            </p>
+            <p> You've visited about page {{ visits }} times!</p>
+        {% endblock %}
+
+        {% block hyperlinks %}
+            <div>
+                <ul>
+                    <li class="hbar1"><a href = "{% url 'myapp:index' %}">Click here to return to main page</a><br/></li>
+                </ul>
+            </div>
+        {% endblock %}
+    </div>
+</body>
+</html>

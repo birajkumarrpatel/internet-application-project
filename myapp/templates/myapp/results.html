@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %} {% if name %} Hello {{ name }}{% endif %} {% endblock %}
+
+{% block body_block %}
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          text-align: center;
+        }
+    </style>
+    {% if courselist %}
+        <h2>Available courses:</h2>
+        <table style="width: auto">
+            <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Length</th>
+                <th scope="col">Price</th>
+            </tr>
+            {% for course  in courselist %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ course.title }}</td>
+                    <td>{{ course.topic.name }}</td>
+                    <td>{{ course.topic.length }}</td>
+                    <td>{{ course.price }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <strong>Sorry, no such courses are available right now.</strong>
+    {% endif %}
+{% endblock %}

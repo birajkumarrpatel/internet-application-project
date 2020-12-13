@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          text-align: center;
+        }
+    </style>
+    <h2>My Profile</h2>
+    {% if is_student %}
+        <h3>Student Name: {{ name }} </h3>
+        <br>
+        <h3>You are interested in following topics: </h3>
+        {% if interested_in %}
+            <ol>
+                {% for top  in interested_in %}
+                    <li> <a href="{% url 'myapp:detail' top.id %}">{{ top.name}}</a> </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <strong>There are no available topics!</strong>
+        {% endif %}
+        <br>
+        <h3>You are registered in following courses:</h3>
+        {% if courses %}
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Course Name</th>
+                    <th>Category</th>
+                    <th>Length</th>
+                </tr>
+                {% for course  in courses %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ course.title }}</td>
+                        <td>{{ course.topic.name }}</td>
+                        <td>{{ course.topic.length }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <strong>You are not registered in any course!</strong>
+        {% endif %}
+    {% else %}
+        <h4>You are not a registered student!</h4>
+    {% endif %}
+{% endblock %}
